@@ -21,7 +21,7 @@ class LoginPage(Base):
         self.click_submit()
 
     def error_msg(self):
-        return self.assert_element_text(LoginPageLocators.NO_MATCH_ERROR, LoginPageLocators.NO_MATCH_ERROR_TEXT)
+        return self.get_text(LoginPageLocators.NO_MATCH_ERROR)
 
 
 

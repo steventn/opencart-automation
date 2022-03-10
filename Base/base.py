@@ -28,6 +28,6 @@ class Base:
     def enter_text(self, by_locator, text):
         return WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).send_keys(text)
 
-    def assert_element_text(self, by_locator, element_text):
+    def get_text(self, by_locator):
         web_element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
-        assert web_element.text == element_text
+        return web_element.text
