@@ -1,9 +1,9 @@
 from Pages.login_page import LoginPage
-from Pages.my_account_page import MyAccountPage
 from Base.base import Base
 from Resources.test_data import LoginPageData
 from Resources.locators import MyAccountLocators
 import pytest
+
 
 class TestLogin(Base):
 
@@ -22,9 +22,12 @@ class TestLogin(Base):
         driver = self.driver
         login = LoginPage(driver)
         login.login(LoginPageData.EMAIL_PASS, LoginPageData.PASSWORD_PASS)
-
+        my_account_content = login.get_text(MyAccountLocators.MY_ACCOUNT_HEADERS)
+        exist = False
+        if "My Account" in my_account_content:
+            exist = True
         try:
-            assert MyAccountPage.check_link(MyAccountLocators.EDIT_ACC_INFO_LINK)
+            assert exist == True
         except Exception as e:
             raise
             print("User is not logged in", format(e))

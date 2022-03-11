@@ -15,3 +15,4 @@ class LoginPageLocators(object):
 
 class MyAccountLocators(object):
     EDIT_ACC_INFO_LINK = (By.XPATH, '//a[normalize-space()="Edit your account information"]')
+    MY_ACCOUNT_HEADERS = (By.ID, 'content')

@@ -24,3 +24,4 @@ class LoginPage(Base):
         return self.get_text(LoginPageLocators.NO_MATCH_ERROR)
 
 
+

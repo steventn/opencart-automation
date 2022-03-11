@@ -32,12 +32,7 @@ class Base:
         web_element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
         return web_element.text
 
-    def check_existence(self, by_locator):
-        web_element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
-        size_of_element = len(web_element)
-        if size_of_element > 0:
-            text = web_element.text
-            return True
-        else:
-            print("Element does not exist")
-            return False
+    # def check_text(self, by_locator, text):
+    #     text_content = self.get_text(by_locator)
+    #     if text in text_content:
+    #         return True
