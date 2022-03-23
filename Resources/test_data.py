@@ -4,3 +4,7 @@ class LoginPageData(object):
     PASSWORD_PASS = "12345"
     EMAIL_FAIL = "test@gmail.com"
     PASSWORD_FAIL = "password"
+
+class RegistrationPageData(object):
+    FIRSTNAME = "Test"
+    LASTNAME = "USer"
