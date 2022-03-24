@@ -16,3 +16,14 @@ class LoginPageLocators(object):
 class MyAccountLocators(object):
     EDIT_ACC_INFO_LINK = (By.XPATH, '//a[normalize-space()="Edit your account information"]')
     MY_ACCOUNT_HEADERS = (By.ID, 'content')
+    CONTINUE_BUTTON = (By.CSS_SELECTOR, 'input[value="Continue"]')
+    FIRST_NAME = (By.ID, 'input-firstname')
+    LAST_NAME = (By.ID, 'input-lastname')
+    EMAIL = (By.ID, 'input-email')
+    TELEPHONE = (By.ID, 'input-telephone')
+    PASSWORD = (By.ID, 'input-password')
+    PASSWORD_CONFIRM = (By.ID, 'input-confirm')
+    SUBSCRIBE_YES = (By.CSS_SELECTOR, '//label[normalize-space()="Yes"]')
+    SUBSCRIBE_NO = (By.CSS_SELECTOR, 'input[value="0"]')
+    PRIVACY_CHECKBOX = (By.CSS_SELECTOR, 'input[value="1"][name="agree"]')
+
