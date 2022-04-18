@@ -11,6 +11,7 @@ class TestRegistration(Base):
         driver = self.driver
         register = RegistrationPage(driver)
 
+
         try:
             assert register.get_error_msg() == ""
         except Exception as e:
