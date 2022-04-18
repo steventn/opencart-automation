@@ -22,6 +22,9 @@ class Base:
             self.driver.close()
             self.driver.quit()
 
+    def open_link(self, link):
+        self.driver.get(link)
+
     def click(self, by_locator):
         WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).click()
 
@@ -31,6 +34,12 @@ class Base:
     def get_text(self, by_locator):
         web_element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
         return web_element.text
+
+    def get_list_of_elements(self, by_locator):
+        web_elements = WebDriverWait(self.driver, 10).until(EC.visibility_of_all_elements_located(by_locator))
+        return web_elements
+
+
 
     def check_selected_checkbox(self, by_locator):
         return self.driver.find_element(by_locator).is_selected()

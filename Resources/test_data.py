@@ -7,4 +7,5 @@ class LoginPageData(object):
 
 class RegistrationPageData(object):
     FIRSTNAME = "Test"
-    LASTNAME = "USer"
+    LASTNAME = "User"
+    URL = "https://demo.opencart.com/index.php?route=account/register"
