@@ -32,6 +32,9 @@ class Base:
         web_element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
         return web_element.text
 
+    def check_selected_checkbox(self, by_locator):
+        return self.driver.find_element(by_locator).is_selected()
+
     # def check_text(self, by_locator, text):
     #     text_content = self.get_text(by_locator)
     #     if text in text_content:

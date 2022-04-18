@@ -30,5 +30,12 @@ class RegistrationPage(Base):
         else:
             self.click(MyAccountLocators.SUBSCRIBE_NO)
 
+    def set_privacy_policy(self, choice):
+        if choice.lower() == "yes":
+            if Base.check_selected_checkbox(MyAccountLocators.PRIVACY_CHECKBOX) == False:
+                self.click(MyAccountLocators.PRIVACY_CHECKBOX)
+        else:
+            self.click(MyAccountLocators.PRIVACY_CHECKBOX)
+
     def click_continue(self):
         self.click(MyAccountLocators.CONTINUE_BUTTON)
