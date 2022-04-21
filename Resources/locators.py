@@ -29,4 +29,5 @@ class RegisterAccountLocators(object):
     SUBSCRIBE_NO = (By.CSS_SELECTOR, 'input[value="0"]')
     PRIVACY_CHECKBOX = (By.CSS_SELECTOR, 'input[value="1"][name="agree"]')
     TEXT_DANGER = ((By.CLASS_NAME, "text-danger"))
+    REGISTRATION_HEADER_SUCCESS = (By.CSS_SELECTOR, "div[id='content'] h1")
 

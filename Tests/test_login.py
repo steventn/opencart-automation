@@ -7,7 +7,7 @@ import pytest
 
 class TestLogin(Base):
 
-    def test_login_fail(self):
+    def test_invalid_login(self):
         driver = self.driver
         login = LoginPage(driver)
         login.login(LoginPageData.EMAIL_FAIL, LoginPageData.PASSWORD_FAIL)
@@ -18,7 +18,7 @@ class TestLogin(Base):
             raise
             print("Error is wrong", format(e))
 
-    def test_user_login_fail(self):
+    def test_invalid_username(self):
         driver = self.driver
         login = LoginPage(driver)
         login.login(LoginPageData.EMAIL_FAIL, LoginPageData.PASSWORD_PASS)
@@ -29,7 +29,7 @@ class TestLogin(Base):
             raise
             print("Error is wrong", format(e))
 
-    def test_pass_login_fail(self):
+    def test_invalid_password(self):
         driver = self.driver
         login = LoginPage(driver)
         login.login(LoginPageData.EMAIL_PASS, LoginPageData.PASSWORD_FAIL)
@@ -40,7 +40,7 @@ class TestLogin(Base):
             raise
             print("Error is wrong", format(e))
 
-    def test_login_pass(self):
+    def test_valid_login(self):
         driver = self.driver
         login = LoginPage(driver)
         login.login(LoginPageData.EMAIL_PASS, LoginPageData.PASSWORD_PASS)
