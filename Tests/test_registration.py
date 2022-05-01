@@ -18,7 +18,7 @@ class TestRegistration(Base):
         if current_url != RegistrationPageData.REGISTRATION_URL:
             return False
         try:
-            error_messages = register.get_list_of_elements(RegisterAccountLocators.TEXT_DANGER)
+            register.get_list_of_elements(RegisterAccountLocators.TEXT_DANGER)
         except NoSuchElementException as e:
                 return False
                 raise
@@ -42,7 +42,7 @@ class TestRegistration(Base):
             return False
 
         try:
-            if RegistrationPageData.REGISTRATION_HEADER_SUCCESS != RegistrationPageData.REGISTRATION_HEADER_SUCCESS_TEXT
+            if RegistrationPageData.REGISTRATION_HEADER_SUCCESS != RegistrationPageData.REGISTRATION_HEADER_SUCCESS_TEXT:
                 return False
         except NoSuchElementException as e:
                 return False

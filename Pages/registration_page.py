@@ -1,4 +1,4 @@
-from Resources.locators import MyAccountLocators
+from Resources.locators import RegisterAccountLocators
 from Base.base import Base
 
 class RegistrationPage(Base):
@@ -7,35 +7,35 @@ class RegistrationPage(Base):
         self.driver = driver
 
     def set_first_name(self, first_name):
-        self.enter_text(MyAccountLocators.FIRST_NAME, first_name)
+        self.enter_text(RegisterAccountLocators.FIRST_NAME, first_name)
 
     def set_last_name(self, last_name):
-        self.enter_text(MyAccountLocators.LAST_NAME, last_name)
+        self.enter_text(RegisterAccountLocators.LAST_NAME, last_name)
 
     def set_email(self, email):
-        self.enter_text(MyAccountLocators.EMAIL, email)
+        self.enter_text(RegisterAccountLocators.EMAIL, email)
 
     def set_telephone(self, telephone):
-        self.enter_text(MyAccountLocators.TELEPHONE, telephone)
+        self.enter_text(RegisterAccountLocators.TELEPHONE, telephone)
 
     def set_password(self, password):
-        self.enter_text(MyAccountLocators.PASSWORD, password)
+        self.enter_text(RegisterAccountLocators.PASSWORD, password)
 
     def set_password_confirm(self, password_confirm):
-        self.enter_text(MyAccountLocators.PASSWORD_CONFIRM, password_confirm)
+        self.enter_text(RegisterAccountLocators.PASSWORD_CONFIRM, password_confirm)
 
     def set_subscribe(self, choice):
         if choice.lower() == "yes":
-            self.click(MyAccountLocators.SUBSCRIBE_YES)
+            self.click(RegisterAccountLocators.SUBSCRIBE_YES)
         else:
-            self.click(MyAccountLocators.SUBSCRIBE_NO)
+            self.click(RegisterAccountLocators.SUBSCRIBE_NO)
 
     def set_privacy_policy(self, choice):
         if choice.lower() == "yes":
-            if Base.check_selected_checkbox(MyAccountLocators.PRIVACY_CHECKBOX) == False:
-                self.click(MyAccountLocators.PRIVACY_CHECKBOX)
+            if not Base.check_selected_checkbox(RegisterAccountLocators.PRIVACY_CHECKBOX):
+                self.click(RegisterAccountLocators.PRIVACY_CHECKBOX)
         else:
-            self.click(MyAccountLocators.PRIVACY_CHECKBOX)
+            self.click(RegisterAccountLocators.PRIVACY_CHECKBOX)
 
     def click_continue(self):
-        self.click(MyAccountLocators.CONTINUE_BUTTON)
+        self.click(RegisterAccountLocators.CONTINUE_BUTTON)
