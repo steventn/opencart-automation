@@ -36,9 +36,12 @@ class TestRegistration(Base):
         register.set_subscribe("yes")
         register.set_privacy_policy("yes")
         register.click_continue()
+        driver.implicitly_wait(30)
         current_url = driver.current_url
+        print(current_url)
+        print(RegistrationPageData.REGISTRATION_SUCCESS_URL)
 
-        if current_url != RegistrationPageData.REGRISTRATION_SUCCESS_URL:
+        if str(current_url) != RegistrationPageData.REGISTRATION_SUCCESS_URL:
             return False
 
         try:

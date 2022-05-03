@@ -1,3 +1,5 @@
+from selenium.webdriver.support.wait import WebDriverWait
+
 from Resources.locators import RegisterAccountLocators
 from Base.base import Base
 
@@ -32,9 +34,6 @@ class RegistrationPage(Base):
 
     def set_privacy_policy(self, choice):
         if choice.lower() == "yes":
-            if not Base.check_selected_checkbox(RegisterAccountLocators.PRIVACY_CHECKBOX):
-                self.click(RegisterAccountLocators.PRIVACY_CHECKBOX)
-        else:
             self.click(RegisterAccountLocators.PRIVACY_CHECKBOX)
 
     def click_continue(self):
