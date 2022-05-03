@@ -4,7 +4,7 @@ from Pages.registration_page import RegistrationPage
 from Base.base import Base
 from Resources.test_data import RegistrationPageData
 from Resources.locators import RegisterAccountLocators
-import pytest
+import csv
 
 class TestRegistration(Base):
 
@@ -24,6 +24,7 @@ class TestRegistration(Base):
                 raise
                 print("Errors do not exist", format(e))
 
+#TODO create method to register, create method for CSV file creation and debug, debug unreachable code
     def test_valid_registration_form(self):
         driver = self.driver
         driver.get(RegistrationPageData.URL)
@@ -31,6 +32,7 @@ class TestRegistration(Base):
         register.set_first_name(RegistrationPageData.FIRSTNAME)
         register.set_last_name(RegistrationPageData.LASTNAME)
         register.set_email(RegistrationPageData.EMAIL)
+        register.set_telephone(RegistrationPageData.TELEPHONE)
         register.set_password(RegistrationPageData.PASSWORD)
         register.set_password_confirm(RegistrationPageData.PASSWORD_CONFIRM)
         register.set_subscribe("yes")
@@ -41,11 +43,25 @@ class TestRegistration(Base):
         print(current_url)
         print(RegistrationPageData.REGISTRATION_SUCCESS_URL)
 
+        csv_columns = ['Email', 'Password']
+        dict_data = [RegistrationPageData.EMAIL, RegistrationPageData.PASSWORD]
+        csv_file = "account_info.csv"
+
+        try:
+            with open(csv_file, 'w') as csvfile:
+                writer = csv.writer(csvfile)
+                writer.writerow(csv_columns)
+                for data in dict_data:
+                    writer.writerow(data)
+        except IOError:
+            print("I/O error")
+
         if str(current_url) != RegistrationPageData.REGISTRATION_SUCCESS_URL:
             return False
 
         try:
-            if RegistrationPageData.REGISTRATION_HEADER_SUCCESS != RegistrationPageData.REGISTRATION_HEADER_SUCCESS_TEXT:
+            print(register.get_text(RegisterAccountLocators.REGISTRATION_HEADER_SUCCESS))
+            if register.get_text(RegisterAccountLocators.REGISTRATION_HEADER_SUCCESS) != RegistrationPageData.REGISTRATION_HEADER_SUCCESS_TEXT:
                 return False
         except NoSuchElementException as e:
                 return False
