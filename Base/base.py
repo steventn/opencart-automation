@@ -9,7 +9,8 @@ class Base:
     @pytest.fixture(autouse=True)
     def set_up(self):
         print("Initiating Chrome driver")
-        self.driver = webdriver.Chrome()
+        #insert pathname of driver on machine
+        self.driver = webdriver.Chrome('/Users/Steven/git/opencart-automation/Drivers/chromedriver')
         print("-----------------------------------------")
         print("Test is started")
         self.driver.implicitly_wait(10)

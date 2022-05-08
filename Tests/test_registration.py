@@ -8,6 +8,19 @@ import csv
 
 class TestRegistration(Base):
 
+    def save_acount_details(self, email, password):
+        csv_header = ['Email', 'Password']
+        csv_data = [email, password]
+        csv_file = "account_info.csv"
+
+        try:
+            with open(csv_file, 'w') as csvfile:
+                writer = csv.writer(csvfile)
+                writer.writerow(csv_header)
+                writer.writerow(csv_data)
+        except IOError:
+            print("I/O error")
+
     def test_invalid_empty_registration_form(self):
         driver = self.driver
         driver.get(RegistrationPageData.URL)
@@ -43,18 +56,7 @@ class TestRegistration(Base):
         print(current_url)
         print(RegistrationPageData.REGISTRATION_SUCCESS_URL)
 
-        csv_columns = ['Email', 'Password']
-        dict_data = [RegistrationPageData.EMAIL, RegistrationPageData.PASSWORD]
-        csv_file = "account_info.csv"
-
-        try:
-            with open(csv_file, 'w') as csvfile:
-                writer = csv.writer(csvfile)
-                writer.writerow(csv_columns)
-                for data in dict_data:
-                    writer.writerow(data)
-        except IOError:
-            print("I/O error")
+        self.save_acount_details(RegistrationPageData.EMAIL, RegistrationPageData.PASSWORD)
 
         if str(current_url) != RegistrationPageData.REGISTRATION_SUCCESS_URL:
             return False
@@ -67,6 +69,8 @@ class TestRegistration(Base):
                 return False
                 raise
                 print("Registration is not successful", format(e))
+
+
 
 
 
