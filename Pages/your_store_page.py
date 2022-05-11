@@ -21,7 +21,25 @@ class ShoppingCartPage(Base):
 
         self.click(featured_add_to_cart[item])
 
-    def 
+    def add_to_wishlist(self, item):
+        featured_add_to_wishlist: {
+            'macbook': MyStoreLocators.MACBOOK_ADD_TO_WISHLIST,
+            'iphone': MyStoreLocators.IPHONE_ADD_TO_WISHLIST,
+            'apple_cinema': MyStoreLocators.APPLE_CINEMA_ADD_TO_WISHLIST,
+            'cannon': MyStoreLocators.CANNON_ADD_TO_WISHLIST
+        }
+
+        self.click(featured_add_to_wishlist[item])
+
+    def add_to_compare(self, item):
+        featured_add_to_compare: {
+            'macbook': MyStoreLocators.MACBOOK_COMPARE,
+            'iphone': MyStoreLocators.IPHONE_COMPARE,
+            'apple_cinema': MyStoreLocators.APPLE_CINEMA_COMPARE,
+            'cannon': MyStoreLocators.CANNON_COMPARE
+        }
+
+        self.click(featured_add_to_compare[item])
 
 
 
